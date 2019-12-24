@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://www.omegaegitim.com/bte550/2011/hw2" xmlns:tns="http://www.omegaegitim.com/bte550/2011/hw2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="city" type="tns:city"/>
+
+  <xs:element name="country" type="tns:country"/>
+
+  <xs:complexType name="country">
+    <xs:sequence>
+      <xs:element name="code" type="xs:ID" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="continent" type="xs:string" minOccurs="0"/>
+      <xs:element name="surfaceArea" type="xs:double"/>
+      <xs:element name="population" type="xs:long"/>
+      <xs:element name="capital" type="xs:IDREF" minOccurs="0"/>
+      <xs:element name="cities" type="tns:city" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="city">
+    <xs:sequence>
+      <xs:element name="id" type="xs:ID" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="population" type="xs:long"/>
+      <xs:element ref="tns:country" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
