@@ -1,0 +1,517 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.service.imdb.example.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="InMemoryMovieServiceService" targetNamespace="http://impl.service.imdb.example.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://impl.service.imdb.example.com/" elementFormDefault="unqualified" targetNamespace="http://impl.service.imdb.example.com/" version="1.0">
+
+  <xs:element name="addMovie" type="tns:addMovie"/>
+
+  <xs:element name="addMovieResponse" type="tns:addMovieResponse"/>
+
+  <xs:element name="findAllDirectors" type="tns:findAllDirectors"/>
+
+  <xs:element name="findAllDirectorsResponse" type="tns:findAllDirectorsResponse"/>
+
+  <xs:element name="findAllGenres" type="tns:findAllGenres"/>
+
+  <xs:element name="findAllGenresResponse" type="tns:findAllGenresResponse"/>
+
+  <xs:element name="findAllMovies" type="tns:findAllMovies"/>
+
+  <xs:element name="findAllMoviesByCriteria" type="tns:findAllMoviesByCriteria"/>
+
+  <xs:element name="findAllMoviesByCriteriaResponse" type="tns:findAllMoviesByCriteriaResponse"/>
+
+  <xs:element name="findAllMoviesByDirectorId" type="tns:findAllMoviesByDirectorId"/>
+
+  <xs:element name="findAllMoviesByDirectorIdResponse" type="tns:findAllMoviesByDirectorIdResponse"/>
+
+  <xs:element name="findAllMoviesByGenre" type="tns:findAllMoviesByGenre"/>
+
+  <xs:element name="findAllMoviesByGenreResponse" type="tns:findAllMoviesByGenreResponse"/>
+
+  <xs:element name="findAllMoviesByYearRange" type="tns:findAllMoviesByYearRange"/>
+
+  <xs:element name="findAllMoviesByYearRangeAndGenre" type="tns:findAllMoviesByYearRangeAndGenre"/>
+
+  <xs:element name="findAllMoviesByYearRangeAndGenreResponse" type="tns:findAllMoviesByYearRangeAndGenreResponse"/>
+
+  <xs:element name="findAllMoviesByYearRangeResponse" type="tns:findAllMoviesByYearRangeResponse"/>
+
+  <xs:element name="findAllMoviesResponse" type="tns:findAllMoviesResponse"/>
+
+  <xs:element name="findGenreByName" type="tns:findGenreByName"/>
+
+  <xs:element name="findGenreByNameResponse" type="tns:findGenreByNameResponse"/>
+
+  <xs:element name="findMovieById" type="tns:findMovieById"/>
+
+  <xs:element name="findMovieByIdResponse" type="tns:findMovieByIdResponse"/>
+
+  <xs:element name="genre" type="tns:genre"/>
+
+  <xs:element name="populate" type="tns:populate"/>
+
+  <xs:element name="populateResponse" type="tns:populateResponse"/>
+
+  <xs:complexType name="findAllMoviesByCriteria">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:criteriaBean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="criteriaBean">
+    <xs:sequence>
+      <xs:element name="director" type="xs:int"/>
+      <xs:element name="directorSelected" type="xs:boolean"/>
+      <xs:element name="fromYear" type="xs:int"/>
+      <xs:element name="genre" type="xs:int"/>
+      <xs:element name="genreSelected" type="xs:boolean"/>
+      <xs:element name="toYear" type="xs:int"/>
+      <xs:element name="yearRangeSelected" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMoviesByCriteriaResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="movie">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="directors" nillable="true" type="tns:director"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="genres" nillable="true" type="tns:genre"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="imdb" type="xs:string"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+      <xs:element name="year" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="director">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="imdb" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="genre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMoviesByDirectorId">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMoviesByDirectorIdResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllGenres">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findAllGenresResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:genre"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMoviesByGenre">
+    <xs:sequence>
+      <xs:element name="genre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMoviesByGenreResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findGenreByName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findGenreByNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:genre"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllDirectors">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findAllDirectorsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:director"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addMovie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addMovieResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMoviesByYearRange">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMoviesByYearRangeResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMovies">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMoviesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findMovieById">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findMovieByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="populate">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="populateResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMoviesByYearRangeAndGenre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element name="arg1" type="xs:int"/>
+      <xs:element name="arg2" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllMoviesByYearRangeAndGenreResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findAllMoviesByYearRangeResponse">
+    <wsdl:part element="tns:findAllMoviesByYearRangeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMoviesByYearRangeAndGenreResponse">
+    <wsdl:part element="tns:findAllMoviesByYearRangeAndGenreResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMoviesByCriteria">
+    <wsdl:part element="tns:findAllMoviesByCriteria" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMoviesByDirectorId">
+    <wsdl:part element="tns:findAllMoviesByDirectorId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllGenres">
+    <wsdl:part element="tns:findAllGenres" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMoviesByDirectorIdResponse">
+    <wsdl:part element="tns:findAllMoviesByDirectorIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMoviesByGenre">
+    <wsdl:part element="tns:findAllMoviesByGenre" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findGenreByName">
+    <wsdl:part element="tns:findGenreByName" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findMovieByIdResponse">
+    <wsdl:part element="tns:findMovieByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllDirectors">
+    <wsdl:part element="tns:findAllDirectors" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMoviesByCriteriaResponse">
+    <wsdl:part element="tns:findAllMoviesByCriteriaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMoviesByGenreResponse">
+    <wsdl:part element="tns:findAllMoviesByGenreResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addMovie">
+    <wsdl:part element="tns:addMovie" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addMovieResponse">
+    <wsdl:part element="tns:addMovieResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMoviesByYearRange">
+    <wsdl:part element="tns:findAllMoviesByYearRange" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="populateResponse">
+    <wsdl:part element="tns:populateResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMovies">
+    <wsdl:part element="tns:findAllMovies" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findGenreByNameResponse">
+    <wsdl:part element="tns:findGenreByNameResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllDirectorsResponse">
+    <wsdl:part element="tns:findAllDirectorsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findMovieById">
+    <wsdl:part element="tns:findMovieById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllGenresResponse">
+    <wsdl:part element="tns:findAllGenresResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="populate">
+    <wsdl:part element="tns:populate" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMoviesResponse">
+    <wsdl:part element="tns:findAllMoviesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllMoviesByYearRangeAndGenre">
+    <wsdl:part element="tns:findAllMoviesByYearRangeAndGenre" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="InMemoryMovieService">
+    <wsdl:operation name="findAllMoviesByCriteria">
+      <wsdl:input message="tns:findAllMoviesByCriteria" name="findAllMoviesByCriteria">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllMoviesByCriteriaResponse" name="findAllMoviesByCriteriaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllMoviesByDirectorId">
+      <wsdl:input message="tns:findAllMoviesByDirectorId" name="findAllMoviesByDirectorId">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllMoviesByDirectorIdResponse" name="findAllMoviesByDirectorIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllGenres">
+      <wsdl:input message="tns:findAllGenres" name="findAllGenres">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllGenresResponse" name="findAllGenresResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllMoviesByGenre">
+      <wsdl:input message="tns:findAllMoviesByGenre" name="findAllMoviesByGenre">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllMoviesByGenreResponse" name="findAllMoviesByGenreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findGenreByName">
+      <wsdl:input message="tns:findGenreByName" name="findGenreByName">
+    </wsdl:input>
+      <wsdl:output message="tns:findGenreByNameResponse" name="findGenreByNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllDirectors">
+      <wsdl:input message="tns:findAllDirectors" name="findAllDirectors">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllDirectorsResponse" name="findAllDirectorsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMovie">
+      <wsdl:input message="tns:addMovie" name="addMovie">
+    </wsdl:input>
+      <wsdl:output message="tns:addMovieResponse" name="addMovieResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllMoviesByYearRange">
+      <wsdl:input message="tns:findAllMoviesByYearRange" name="findAllMoviesByYearRange">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllMoviesByYearRangeResponse" name="findAllMoviesByYearRangeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllMovies">
+      <wsdl:input message="tns:findAllMovies" name="findAllMovies">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllMoviesResponse" name="findAllMoviesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findMovieById">
+      <wsdl:input message="tns:findMovieById" name="findMovieById">
+    </wsdl:input>
+      <wsdl:output message="tns:findMovieByIdResponse" name="findMovieByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="populate">
+      <wsdl:input message="tns:populate" name="populate">
+    </wsdl:input>
+      <wsdl:output message="tns:populateResponse" name="populateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllMoviesByYearRangeAndGenre">
+      <wsdl:input message="tns:findAllMoviesByYearRangeAndGenre" name="findAllMoviesByYearRangeAndGenre">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllMoviesByYearRangeAndGenreResponse" name="findAllMoviesByYearRangeAndGenreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InMemoryMovieServiceServiceSoapBinding" type="tns:InMemoryMovieService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findAllMoviesByCriteria">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllMoviesByCriteria">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllMoviesByCriteriaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllMoviesByDirectorId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllMoviesByDirectorId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllMoviesByDirectorIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllGenres">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllGenres">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllGenresResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllMoviesByGenre">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllMoviesByGenre">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllMoviesByGenreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findGenreByName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findGenreByName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findGenreByNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllDirectors">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllDirectors">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllDirectorsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMovie">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addMovie">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addMovieResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllMoviesByYearRange">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllMoviesByYearRange">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllMoviesByYearRangeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllMovies">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllMovies">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllMoviesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findMovieById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findMovieById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findMovieByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="populate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="populate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="populateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllMoviesByYearRangeAndGenre">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllMoviesByYearRangeAndGenre">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllMoviesByYearRangeAndGenreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InMemoryMovieServiceService">
+    <wsdl:port binding="tns:InMemoryMovieServiceServiceSoapBinding" name="InMemoryMovieServicePort">
+      <soap:address location="http://localhost:8080/imdb-soap-webservice/InMemoryMovieService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
