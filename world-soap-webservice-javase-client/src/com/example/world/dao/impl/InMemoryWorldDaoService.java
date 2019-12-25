@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "InMemoryWorldDaoService", targetNamespace = "http://impl.dao.world.example.com/", wsdlLocation = "file:/C:/temp/InMemoryWorldDaoService.wsdl")
+@WebServiceClient(name = "InMemoryWorldDaoService", targetNamespace = "http://impl.dao.world.example.com/", wsdlLocation = "file:/C:/stage/var/workspace/dcl/dcl-420/2019/dec-23/world-soap-webservice-javase-client/resources/InMemoryWorldDaoService.wsdl")
 public class InMemoryWorldDaoService
     extends Service
 {
@@ -30,7 +30,7 @@ public class InMemoryWorldDaoService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/temp/InMemoryWorldDaoService.wsdl");
+            url = new URL("file:/C:/stage/var/workspace/dcl/dcl-420/2019/dec-23/world-soap-webservice-javase-client/resources/InMemoryWorldDaoService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -65,11 +65,11 @@ public class InMemoryWorldDaoService
     /**
      * 
      * @return
-     *     returns InMemoryWorldDao
+     *     returns WorldDao
      */
     @WebEndpoint(name = "InMemoryWorldDaoPort")
-    public InMemoryWorldDao getInMemoryWorldDaoPort() {
-        return super.getPort(new QName("http://impl.dao.world.example.com/", "InMemoryWorldDaoPort"), InMemoryWorldDao.class);
+    public WorldDao getInMemoryWorldDaoPort() {
+        return super.getPort(new QName("http://impl.dao.world.example.com/", "InMemoryWorldDaoPort"), WorldDao.class);
     }
 
     /**
@@ -77,11 +77,11 @@ public class InMemoryWorldDaoService
      * @param features
      *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns InMemoryWorldDao
+     *     returns WorldDao
      */
     @WebEndpoint(name = "InMemoryWorldDaoPort")
-    public InMemoryWorldDao getInMemoryWorldDaoPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://impl.dao.world.example.com/", "InMemoryWorldDaoPort"), InMemoryWorldDao.class, features);
+    public WorldDao getInMemoryWorldDaoPort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://impl.dao.world.example.com/", "InMemoryWorldDaoPort"), WorldDao.class, features);
     }
 
     private static URL __getWsdlLocation() {

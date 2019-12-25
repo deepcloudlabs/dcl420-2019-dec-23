@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="WorldDao" targetNamespace="http://dao.world.example.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://dao.world.example.com/">
+  <wsdl:types>
+<xs:schema xmlns:tns="http://dao.world.example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://dao.world.example.com/" version="1.0">
+
+  <xs:element name="addCity" type="tns:addCity"/>
+
+  <xs:element name="addCityResponse" type="tns:addCityResponse"/>
+
+  <xs:element name="addCountry" type="tns:addCountry"/>
+
+  <xs:element name="addCountryResponse" type="tns:addCountryResponse"/>
+
+  <xs:element name="findAllCities" type="tns:findAllCities"/>
+
+  <xs:element name="findAllCitiesResponse" type="tns:findAllCitiesResponse"/>
+
+  <xs:element name="findAllCountries" type="tns:findAllCountries"/>
+
+  <xs:element name="findAllCountriesResponse" type="tns:findAllCountriesResponse"/>
+
+  <xs:element name="findCitiesByCountryCode" type="tns:findCitiesByCountryCode"/>
+
+  <xs:element name="findCitiesByCountryCodeResponse" type="tns:findCitiesByCountryCodeResponse"/>
+
+  <xs:element name="findCityById" type="tns:findCityById"/>
+
+  <xs:element name="findCityByIdResponse" type="tns:findCityByIdResponse"/>
+
+  <xs:element name="findCountriesByContinent" type="tns:findCountriesByContinent"/>
+
+  <xs:element name="findCountriesByContinentResponse" type="tns:findCountriesByContinentResponse"/>
+
+  <xs:element name="findCountryByCode" type="tns:findCountryByCode"/>
+
+  <xs:element name="findCountryByCodeResponse" type="tns:findCountryByCodeResponse"/>
+
+  <xs:element name="getAllContinents" type="tns:getAllContinents"/>
+
+  <xs:element name="getAllContinentsResponse" type="tns:getAllContinentsResponse"/>
+
+  <xs:element name="removeCity" type="tns:removeCity"/>
+
+  <xs:element name="removeCityResponse" type="tns:removeCityResponse"/>
+
+  <xs:element name="removeCountry" type="tns:removeCountry"/>
+
+  <xs:element name="removeCountryResponse" type="tns:removeCountryResponse"/>
+
+  <xs:element name="updateCity" type="tns:updateCity"/>
+
+  <xs:element name="updateCityResponse" type="tns:updateCityResponse"/>
+
+  <xs:element name="updateCountry" type="tns:updateCountry"/>
+
+  <xs:element name="updateCountryResponse" type="tns:updateCountryResponse"/>
+
+  <xs:complexType name="findCitiesByCountryCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findCitiesByCountryCodeResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:city"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="city">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element name="population" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllCountries">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findAllCountriesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:country"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="country">
+    <xs:sequence>
+      <xs:element name="capital" type="xs:int"/>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="continent" type="xs:string"/>
+      <xs:element name="gnp" type="xs:double"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element name="population" type="xs:int"/>
+      <xs:element name="surfaceArea" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findCountryByCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findCountryByCodeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:country"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllContinents">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllContinentsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeCity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:city"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeCityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:city"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateCity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:city"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateCityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:city"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addCountry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:country"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addCountryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:country"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findCityById">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findCityByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:city"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateCountry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:country"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateCountryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:country"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findCountriesByContinent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findCountriesByContinentResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:country"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeCountry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:country"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeCountryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:country"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllCities">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findAllCitiesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:city"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addCity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:city"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addCityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:city"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="updateCountryResponse">
+    <wsdl:part name="parameters" element="ns1:updateCountryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findCountryByCode">
+    <wsdl:part name="parameters" element="ns1:findCountryByCode">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findCityByIdResponse">
+    <wsdl:part name="parameters" element="ns1:findCityByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeCountryResponse">
+    <wsdl:part name="parameters" element="ns1:removeCountryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCountryResponse">
+    <wsdl:part name="parameters" element="ns1:addCountryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeCity">
+    <wsdl:part name="parameters" element="ns1:removeCity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCityResponse">
+    <wsdl:part name="parameters" element="ns1:updateCityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCityResponse">
+    <wsdl:part name="parameters" element="ns1:addCityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCountry">
+    <wsdl:part name="parameters" element="ns1:addCountry">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCountry">
+    <wsdl:part name="parameters" element="ns1:updateCountry">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeCountry">
+    <wsdl:part name="parameters" element="ns1:removeCountry">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCity">
+    <wsdl:part name="parameters" element="ns1:addCity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllCitiesResponse">
+    <wsdl:part name="parameters" element="ns1:findAllCitiesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findCitiesByCountryCode">
+    <wsdl:part name="parameters" element="ns1:findCitiesByCountryCode">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeCityResponse">
+    <wsdl:part name="parameters" element="ns1:removeCityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllCountries">
+    <wsdl:part name="parameters" element="ns1:findAllCountries">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findCountryByCodeResponse">
+    <wsdl:part name="parameters" element="ns1:findCountryByCodeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllContinents">
+    <wsdl:part name="parameters" element="ns1:getAllContinents">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCity">
+    <wsdl:part name="parameters" element="ns1:updateCity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findCityById">
+    <wsdl:part name="parameters" element="ns1:findCityById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllContinentsResponse">
+    <wsdl:part name="parameters" element="ns1:getAllContinentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllCountriesResponse">
+    <wsdl:part name="parameters" element="ns1:findAllCountriesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findCitiesByCountryCodeResponse">
+    <wsdl:part name="parameters" element="ns1:findCitiesByCountryCodeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findCountriesByContinentResponse">
+    <wsdl:part name="parameters" element="ns1:findCountriesByContinentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findCountriesByContinent">
+    <wsdl:part name="parameters" element="ns1:findCountriesByContinent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllCities">
+    <wsdl:part name="parameters" element="ns1:findAllCities">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WorldDao">
+    <wsdl:operation name="findCitiesByCountryCode">
+      <wsdl:input name="findCitiesByCountryCode" message="ns1:findCitiesByCountryCode">
+    </wsdl:input>
+      <wsdl:output name="findCitiesByCountryCodeResponse" message="ns1:findCitiesByCountryCodeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllCountries">
+      <wsdl:input name="findAllCountries" message="ns1:findAllCountries">
+    </wsdl:input>
+      <wsdl:output name="findAllCountriesResponse" message="ns1:findAllCountriesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCountryByCode">
+      <wsdl:input name="findCountryByCode" message="ns1:findCountryByCode">
+    </wsdl:input>
+      <wsdl:output name="findCountryByCodeResponse" message="ns1:findCountryByCodeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllContinents">
+      <wsdl:input name="getAllContinents" message="ns1:getAllContinents">
+    </wsdl:input>
+      <wsdl:output name="getAllContinentsResponse" message="ns1:getAllContinentsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCity">
+      <wsdl:input name="removeCity" message="ns1:removeCity">
+    </wsdl:input>
+      <wsdl:output name="removeCityResponse" message="ns1:removeCityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCity">
+      <wsdl:input name="updateCity" message="ns1:updateCity">
+    </wsdl:input>
+      <wsdl:output name="updateCityResponse" message="ns1:updateCityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCountry">
+      <wsdl:input name="addCountry" message="ns1:addCountry">
+    </wsdl:input>
+      <wsdl:output name="addCountryResponse" message="ns1:addCountryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCityById">
+      <wsdl:input name="findCityById" message="ns1:findCityById">
+    </wsdl:input>
+      <wsdl:output name="findCityByIdResponse" message="ns1:findCityByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCountry">
+      <wsdl:input name="updateCountry" message="ns1:updateCountry">
+    </wsdl:input>
+      <wsdl:output name="updateCountryResponse" message="ns1:updateCountryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCountriesByContinent">
+      <wsdl:input name="findCountriesByContinent" message="ns1:findCountriesByContinent">
+    </wsdl:input>
+      <wsdl:output name="findCountriesByContinentResponse" message="ns1:findCountriesByContinentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCountry">
+      <wsdl:input name="removeCountry" message="ns1:removeCountry">
+    </wsdl:input>
+      <wsdl:output name="removeCountryResponse" message="ns1:removeCountryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllCities">
+      <wsdl:input name="findAllCities" message="ns1:findAllCities">
+    </wsdl:input>
+      <wsdl:output name="findAllCitiesResponse" message="ns1:findAllCitiesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCity">
+      <wsdl:input name="addCity" message="ns1:addCity">
+    </wsdl:input>
+      <wsdl:output name="addCityResponse" message="ns1:addCityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

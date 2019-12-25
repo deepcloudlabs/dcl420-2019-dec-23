@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.dao.world.example.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://dao.world.example.com/" name="InMemoryWorldDaoService" targetNamespace="http://impl.dao.world.example.com/">
+  <wsdl:import location="WorldDao.wsdl" namespace="http://dao.world.example.com/">
+    </wsdl:import>
+  <wsdl:binding name="InMemoryWorldDaoServiceSoapBinding" type="ns1:WorldDao">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findCitiesByCountryCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findCitiesByCountryCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findCitiesByCountryCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllCountries">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllCountries">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllCountriesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCountryByCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findCountryByCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findCountryByCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllContinents">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllContinents">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllContinentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeCity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeCityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateCity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateCityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCountry">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addCountry">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addCountryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCityById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findCityById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findCityByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCountry">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateCountry">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateCountryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCountriesByContinent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findCountriesByContinent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findCountriesByContinentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCountry">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeCountry">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeCountryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllCities">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllCities">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllCitiesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addCity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addCityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InMemoryWorldDaoService">
+    <wsdl:port binding="tns:InMemoryWorldDaoServiceSoapBinding" name="InMemoryWorldDaoPort">
+      <soap:address location="http://localhost:8080/world-soap-webservice/InMemoryWorldDao"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
