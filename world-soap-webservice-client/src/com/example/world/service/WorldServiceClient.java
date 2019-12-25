@@ -4,18 +4,18 @@ import javax.ejb.Schedule;
 import javax.ejb.Stateless;
 import javax.xml.ws.WebServiceRef;
 
-import com.example.world.dao.impl.Country;
-import com.example.world.dao.impl.InMemoryWorldDao;
+import com.example.world.dao.Country;
 import com.example.world.dao.impl.InMemoryWorldDaoService;
+import com.example.world.dao.impl.WorldDao;
 
 @Stateless
 public class WorldServiceClient {
-	@WebServiceRef(type = InMemoryWorldDao.class, value = InMemoryWorldDaoService.class)
-	private InMemoryWorldDao inMemoryWorldDao;
+	@WebServiceRef(type = WorldDao.class, value = InMemoryWorldDaoService.class)
+	private WorldDao worldDao;
 
 	@Schedule(hour = "*", minute = "*", second = "*/10")
 	public void callWorldWebService() {
-	 inMemoryWorldDao.findCountriesByContinent("Asia")
+	 worldDao.findCountriesByContinent("Asia")
 	            .stream()
 	            .map(Country::getName)
 				.forEach(System.out::println);
