@@ -17,7 +17,7 @@ import com.example.world.entity.City;
 import com.example.world.entity.Country;
 
 @Stateless
-@WebService
+@WebService(endpointInterface = "com.example.world.dao.WorldDao")
 @HandlerChain(file = "handlers.xml")
 public class InMemoryWorldDao implements WorldDao {
 	private Map<String, Country> countries;
