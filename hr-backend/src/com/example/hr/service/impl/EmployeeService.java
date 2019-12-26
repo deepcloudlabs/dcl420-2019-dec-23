@@ -3,6 +3,7 @@ package com.example.hr.service.impl;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
@@ -13,7 +14,9 @@ import com.example.hr.entity.Employee;
 public class EmployeeService {
 	@Inject
 	private EmployeeRepository employeeRepository;
-
+	@Inject
+	private Event<Employee> event;
+	
 	public Employee findEmployeeById(Long id) {
 		return employeeRepository.findById(id);
 	}
@@ -28,7 +31,9 @@ public class EmployeeService {
 
 	@Transactional
 	public Employee addEmployee(Employee employee) {
-		return employeeRepository.addEmployee(employee);
+		Employee emp = employeeRepository.addEmployee(employee);
+		event.fire(emp);
+		return emp;
 	}
 
 	public Employee updateEmployee(Employee employee) {
