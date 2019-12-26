@@ -2,10 +2,14 @@
   "name": "hr-client-nodejs",
   "version": "1.0.0",
   "description": "HR Client for Nodejs",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "Binnur Kurt <binnur.kurt@gmail>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.2"
+  }
 }
