@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <collection>
-    <movies>
-        <movie imdb="tt0072890">
-            <directors>
-                <director>
-                    <name>Sidney Lumet</name>
-                    <imdb>nm0001486</imdb>
-                </director>
-            </directors>
-            <genres>
-                <genre>Crime</genre>
-                <genre>Drama</genre>
-                <genre>Thriller</genre>
-            </genres>
-            <title>Dog Day Afternoon</title>
-            <year>1975</year>
-        </movie>
-        <movie imdb="tt0074958">
-            <directors>
-                <director>
-                    <name>Sidney Lumet</name>
-                    <imdb>nm0001486</imdb>
-                </director>
-            </directors>
-            <genres>
-                <genre>Drama</genre>
-            </genres>
-            <title>Network</title>
-            <year>1976</year>
-        </movie>
-        <movie imdb="tt0074806">
-            <directors>
-                <director>
-                    <name>Nicolas Gessner</name>
-                    <imdb>nm0004654</imdb>
-                </director>
-            </directors>
-            <genres>
-                <genre>Drama</genre>
-                <genre>Horror</genre>
-                <genre>Mystery</genre>
-                <genre>Thriller</genre>
-            </genres>
-            <title>The Little Girl Who Lives Down the Lane</title>
-            <year>1976</year>
-        </movie>
-    </movies>
+	<movies>
+		<movie imdb="tt0072890">
+			<directors>
+				<director>
+					<name>Sidney Lumet</name>
+					<imdb>nm0001486</imdb>
+				</director>
+			</directors>
+			<genres>
+				<genre>Crime</genre>
+				<genre>Drama</genre>
+				<genre>Thriller</genre>
+			</genres>
+			<title>Dog Day Afternoon</title>
+			<year>1975</year>
+		</movie>
+		<movie imdb="tt0074958">
+			<directors>
+				<director>
+					<name>Sidney Lumet</name>
+					<imdb>nm0001486</imdb>
+				</director>
+			</directors>
+			<genres>
+				<genre>Drama</genre>
+			</genres>
+			<title>Network</title>
+			<year>1976</year>
+		</movie>
+		<movie imdb="tt0074806">
+			<directors>
+				<director>
+					<name>Nicolas Gessner</name>
+					<imdb>nm0004654</imdb>
+				</director>
+			</directors>
+			<genres>
+				<genre>Drama</genre>
+				<genre>Horror</genre>
+				<genre>Mystery</genre>
+				<genre>Thriller</genre>
+			</genres>
+			<title>The Little Girl Who Lives Down the Lane</title>
+			<year>1976</year>
+		</movie>
+	</movies>
 </collection>
