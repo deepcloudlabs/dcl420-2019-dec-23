@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--  
-   //country[continent = 'Asia']
- -->
-<countries><country>
+<!-- //country[continent = 'Asia'] -->
+<countries>
+	<country>
 		<code>ABW</code>
 		<name>Aruba</name>
 		<population>103000</population>
@@ -1667,10 +1666,12 @@
 		<population>9169000</population>
 		<surfacearea>752618.00</surfacearea>
 		<continent>Africa</continent>
-	</country><country>
+	</country>
+	<country>
 		<code>ZWE</code>
 		<name>Zimbabwe</name>
 		<population>11669000</population>
 		<surfacearea>390757.00</surfacearea>
 		<continent>Africa</continent>
-	</country></countries>
+	</country>
+</countries>

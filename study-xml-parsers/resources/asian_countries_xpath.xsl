@@ -4,10 +4,12 @@
 	<xsl:output media-type="application/xml" />
 	<xsl:template match="/countries">
 		<countries>
-			<xsl:for-each select="country[number(population) > 150000000]">
-					<xsl:sort  select="population"  data-type="number" order="descending"/>
-					
-					<xsl:copy-of select="." />
+			<xsl:for-each
+				select="country[number(population) > 150000000]">
+				<xsl:sort select="population" data-type="number"
+					order="descending" />
+
+				<xsl:copy-of select="." />
 			</xsl:for-each>
 		</countries>
 	</xsl:template>

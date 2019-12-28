@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <country xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://www.omegaegitim.com/bte550/2011/hw2 country.xsd"
-             xmlns="http://www.omegaegitim.com/bte550/2011/hw2">
-    <code>TUR</code>
-    <name>Turkey</name>
-    <continent>Asia</continent>
-    <surfaceArea>1.0</surfaceArea>
-    <population>2</population>
-    <capital>1</capital>
-    <cities>
-        <id>1</id>
-        <name>Ankara</name>
-        <population>1</population>
-        <country>TUR</country>
-    </cities>
-    <cities>
-        <id>2</id>
-        <name>İstanbul</name>
-        <population>1</population>
-        <country>TUR</country>
-    </cities>
+	xsi:schemaLocation="http://www.omegaegitim.com/bte550/2011/hw2 country.xsd"
+	xmlns="http://www.omegaegitim.com/bte550/2011/hw2">
+	<code>TUR</code>
+	<name>Turkey</name>
+	<continent>Asia</continent>
+	<surfaceArea>1.0</surfaceArea>
+	<population>2</population>
+	<capital>1</capital>
+	<cities>
+		<id>1</id>
+		<name>Ankara</name>
+		<population>1</population>
+		<country>
+			TUR
+		</country>
+	</cities>
+	<cities>
+		<id>2</id>
+		<name>İstanbul</name>
+		<population>1</population>
+		<country>
+			TUR
+		</country>
+	</cities>
 </country>
