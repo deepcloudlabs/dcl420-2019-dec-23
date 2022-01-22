@@ -9,7 +9,7 @@
   "author": "Binnur Kurt <binnur.kurt@gmail>",
   "license": "MIT",
   "dependencies": {
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.1.1",
     "nodemon": "^2.0.2"
   }
 }
